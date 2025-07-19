@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMOR DA MINHA VIDA</title>
+    <link rel="shortcut icon" href="./imagens/hk-removebg-preview.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Comic Neue", cursive;
+        background: linear-gradient(135deg, #fadadd, #ff69b4);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative; 
+      }
+
+      .carta,
+      .pergunta,
+      .carta-final {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        position: absolute;
+        border: 4px dashed #ffd700;
+        opacity: 1;
+        transition: all 0.7s ease;
+      }
+
+      .carta.hidden {
+        transform: translateX(-100vw);
+        opacity: 0;
+      }
+
+      .pergunta,
+      .carta-final {
+        opacity: 0;
+        transform: translateX(100vw);
+      }
+
+      .pergunta.visible,
+      .carta-final.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hello-kitty-icon {
+        width: 60px;
+        position: absolute;
+        top: -30px;
+        right: -30px;
+      }
+
+      .carta a {
+        text-decoration: underline;
+        color: #ff69b4;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .pergunta h2,
+      .carta-final h2 {
+        color: #ff69b4;
+        margin-bottom: 20px;
+      }
+
+      .opcao,
+      .opcaoR,
+      .opcaoQ {
+        display: block;
+        background-color: #fadadd;
+        color: #000;
+        margin: 10px auto;
+        padding: 12px 20px;
+        border-radius: 12px;
+        border: 2px solid #ff69b4;
+        cursor: pointer;
+        transition: background 0.3s;
+        max-width: 300px;
+      }
+
+      .opcao:hover,
+      .opcaoR:hover,
+      .opcaoQ:hover {
+        background-color: #ff69b4;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Carta inicial -->
+    <div class="carta" id="carta">
+      <img
+        src="./imagens/hk-removebg-preview.png"
+        alt="Hello Kitty"
+        class="hello-kitty-icon"
+      />
+      <h1>Oi, meu amorzinho 🩷</h1>
+      <p>
+        Eu fiz esse site com muito carinho só pra você.
+        <br />Queria te lembrar o quanto você é especial pra mim e o quanto
+        sinto sua falta... <br />Clica em "<a onclick="mostrarPergunta()"
+          >Próximo</a
+        >" quando estiver pronta 💖
+      </p>
+    </div>
+
+    <!-- Perguntas -->
+    <div class="pergunta" id="pergunta1">
+      <h2>Qual dessas coisas mais parece com um encontro nosso?</h2>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        🍕 Comer besteira e rir à toa
+      </div>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        🎬 Ver filminho juntinhos
+      </div>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        🌅 Ver as estrelas juntos
+      </div>
+      <div class="opcao" onclick="proxima()">❤️ Todas acima</div>
+    </div>
+
+    <div class="pergunta" id="pergunta2">
+      <h2>Qual mulher sempre me fez ser o melhor de mim?</h2>
+      <div class="opcaoR" onclick="respostaR(this)">
+        🤦‍♀️ Alguma esquisita aleatória
+      </div>
+      <div class="opcaoR" onclick="respostaR(this)">
+        🐟 Alguma piranha do meu passado
+      </div>
+      <div class="opcaoR" onclick="respostaR(this)">
+        🤖 Megan Fox? (desculpa, não pensei em mais nenhuma opção)
+      </div>
+      <div class="opcao" onclick="proxima()">
+        ❤️ O amor da minha vida (você)
+      </div>
+    </div>
+
+    <div class="pergunta" id="pergunta3">
+      <h2>
+        Eu amo muito você, sei que errei muito, mas como me sinto perto de você?
+      </h2>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        🦋 Com borboletas no estômago
+      </div>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        😊 Extremamente orgulhoso de quem você é
+      </div>
+      <div class="opcaoQ" onclick="respostaQ(this)">
+        😟 Triste pelas coisas que aconteceram
+      </div>
+      <div class="opcao" onclick="proxima()">
+        ❤️ Sinto que quero ser um homem e namorado melhor para você
+      </div>
+    </div>
+
+    <div class="pergunta" id="pergunta4">
+      <h2>
+        Sinto que criamos algo muito bom. Com um pouco mais de maturidade de
+        ambos, podemos mudar as coisas?
+      </h2>
+      <div class="opcaoR" onclick="respostaR(this)">💀 Não</div>
+      <div class="opcao" onclick="proxima()">❤️ Sim</div>
+    </div>
+
+    <!-- Carta final -->
+    <div class="carta-final" id="cartaFinal">
+      <img
+        src="./imagens/hk-removebg-preview.png"
+        alt="Hello Kitty"
+        class="hello-kitty-icon"
+      />
+      <h2>Fim do nosso quiz 💌</h2>
+      <p style="text-align: left">
+        Meu amor,<br /><br />
+
+        Eu queria aproveitar esse espacinho para me abrir com você com todo o
+        carinho e sinceridade que existem dentro de mim.<br /><br />
+
+        Em primeiro lugar, me perdoa. Por tudo que eu fiz e também pelo que
+        deixei de fazer, por cada momento em que te magoei — isso me machuca
+        muito mais do que consigo colocar em palavras.<br /><br />
+
+        Você sempre foi o meu raio de sol. A luz que iluminou meus dias mesmo
+        nos momentos mais nublados. Foi você quem me manteve firme, quem me deu
+        chão, minha âncora no meio do caos que muitas vezes é a vida. E eu nunca
+        vou esquecer disso.<br /><br />
+
+        Eu tenho tanto orgulho de ver a mulher incrível que você está se
+        tornando. Forte, linda, decidida, com esse brilho único que sempre me
+        encantou. E é por isso que eu também quero crescer. Quero ser melhor.
+        Quero merecer te ter ao meu lado de novo, se você permitir.<br /><br />
+
+        Talvez você ache que eu não mereça perdão, e talvez esteja certa... Mas
+        também sei que sempre fiz de tudo por nós e estou disposto a fazer ainda
+        mais. Porque você é o amor da minha vida. E sempre vai ser.<br /><br />
+
+        Com todo o meu amor,<br />
+        <strong>Seu eterno apaixonado 💖</strong>
+      </p>
+    </div>
+
+    <!-- Mensagem temporária -->
+    <div
+      id="mensagem-temporaria"
+      style="
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px 25px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 1rem;
+        border: 2px solid #ffd700;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 999;
+        transition: all 0.4s ease;
+      "
+    ></div>
+
+    <!-- Script -->
+    <script>
+      let perguntaAtual = 1;
+
+      function mostrarPergunta() {
+        const carta = document.getElementById("carta");
+        const pergunta = document.getElementById("pergunta1");
+        carta.classList.add("hidden");
+
+        setTimeout(() => {
+          pergunta.classList.add("visible");
+        }, 700);
+      }
+
+      function proxima() {
+        const atual = document.getElementById(`pergunta${perguntaAtual}`);
+        const proxima = document.getElementById(`pergunta${perguntaAtual + 1}`);
+
+        if (proxima) {
+          atual.classList.remove("visible");
+          setTimeout(() => {
+            atual.style.display = "none";
+            proxima.classList.add("visible");
+          }, 500);
+          perguntaAtual++;
+        } else {
+          // Mostrar carta final
+          atual.classList.remove("visible");
+          setTimeout(() => {
+            atual.style.display = "none";
+            document.getElementById("cartaFinal").classList.add("visible");
+          }, 500);
+        }
+      }
+
+      function respostaQ() {
+        mostrarMensagem("Isso também, mas não é o todo 💕", "#FF69B4");
+      }
+
+      function respostaR() {
+        mostrarMensagem("Lógico que não, meu amor 💔", "#D00000");
+      }
+
+      function mostrarMensagem(texto, cor) {
+        const msg = document.getElementById("mensagem-temporaria");
+        msg.innerText = texto;
+        msg.style.backgroundColor = "#fff";
+        msg.style.color = cor;
+        msg.style.display = "block";
+
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2500);
+      }
+    </script>
+  </body>
+</html>
